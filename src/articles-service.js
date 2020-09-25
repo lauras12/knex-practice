@@ -1,9 +1,14 @@
-const ArticlesService = {
+const ArticlesService = require('../src/articles-service')
+const knex = require('knex')
 
-    getAllArticles() {
-            return 'all the articles!!'
-           }
+  describe(`Articles service object`, function() {
+  let db
 
-}
+   before(() => {
+     db = knex({
+       client: 'pg',
+       connection: process.env.TEST_DB_URL,
+     })
+   })
 
-module.exports = ArticlesService
+    describe(`getAllArticles()`, () => {
