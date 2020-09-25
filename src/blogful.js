@@ -8,7 +8,6 @@ const knexInstance = knex({
   connection: process.env.DB_URL,
 })
 
-
 // use all the ArticlesService methods!!
 ArticlesService.getAllArticles(knexInstance)
   .then(articles => console.log(articles))
